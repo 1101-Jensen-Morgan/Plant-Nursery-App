@@ -35,6 +35,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Install PostgreSQL client
+      run: sudo apt-get install postgresql-client
+
+    - name: Load database schema
+      run: |
+        psql -h localhost -U postgres -d FinalProject -f data/schema_only_backup.sql
+      env:
+        PGPASSWORD: Ih8passwards!
+
     - name: Run unit & integration tests
       env:
         PGHOST: localhost
