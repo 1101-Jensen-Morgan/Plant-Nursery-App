@@ -44,6 +44,28 @@ jobs:
       env:
         PGPASSWORD: Ih8passwards!
 
+    - name: Insert test data
+      run: |
+        psql -h localhost -U postgres -d FinalProject <<EOF
+        INSERT INTO users (id, username, password, firstname, lastname)
+        VALUES (1, 'testuser', 'testpass', 'Test', 'User');
+
+        INSERT INTO plant_info (id, commonname, latinname, description)
+        VALUES (1, 'Spider Plant', 'Chlorophytum comosum', 'A popular houseplant.');
+
+        INSERT INTO care (id, lighting, watering, soil, temperature, humidity, pet_safe)
+        VALUES (1, 'Indirect light', 'Weekly', 'Well-draining', '65-75F', 'Medium', true);
+
+        INSERT INTO plants_owned (id, user_id, plant_id)
+        VALUES (1, 1, 1);
+
+        INSERT INTO watering_log (id, date, amountw, fertilizer, amountf, user_id, plant_id)
+        VALUES (1, CURRENT_DATE, 250, false, 0, 1, 1);
+        EOF
+      env:
+        PGPASSWORD: Ih8passwards!
+
+
     - name: Run unit & integration tests
       env:
         PGHOST: localhost
