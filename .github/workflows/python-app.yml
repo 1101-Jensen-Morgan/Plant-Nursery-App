@@ -51,6 +51,9 @@ jobs:
         VALUES (1, 'testuser', 'testpass', 'Test', 'User');
 
         INSERT INTO plant_info (id, commonname, latinname, description)
+        VALUES (2, 'Basil', 'Ocimum basilicum', 'A fragrant herb.');
+
+        INSERT INTO plant_info (id, commonname, latinname, description)
         VALUES (1, 'Spider Plant', 'Chlorophytum comosum', 'A popular houseplant.');
 
         INSERT INTO care (id, lighting, watering, soil, temperature, humidity, pet_safe)
