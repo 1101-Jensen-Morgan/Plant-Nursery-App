@@ -8,7 +8,13 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import ImageTk, Image
 from tkcalendar import Calendar, DateEntry
-from . import FinalProjectDatabase as fpd
+import os
+from pathlib import Path
+from src import FinalProjectDatabase as fpd
+
+#global variables
+BASE_DIR = Path(__file__).parent.parent
+IMAGE_DIR = BASE_DIR / 'images'
 
 
 #=======================================
@@ -356,7 +362,7 @@ def Create_Search_Plants_Tab(root):
 
     def load(pID):
         if pID == 'none':
-            image = Image.open("../pictures/cartoonPlant.png")
+            image = Image.open(IMAGE_DIR / "cartoonPlant.png")
             newImage = image.resize((400, 400))
             img = ImageTk.PhotoImage(newImage)
             
@@ -364,7 +370,7 @@ def Create_Search_Plants_Tab(root):
             image_label.image = img
             image_label.pack(pady=20) 
         else:   
-            image = Image.open(f"../pictures/{pID}.png")
+            image = Image.open(IMAGE_DIR / f"{pID}.png")
             newImage = image.resize((400, 400))
             img = ImageTk.PhotoImage(newImage)
             
@@ -461,7 +467,7 @@ def Create_Home_Tab(root, notebook,user_ID):
     intro_label = tk.Label(Home_Frame, text="This app is designed to help you with all your plant care. You can view the plants that you own, add new ones, and record when you last watered or used fertalizer.\n Are you looking to buy a new plant? In the search tab, you can look to see what care is required for a plant before you buy it!\nHave fun!", font=("Goergia", 16))
     intro_label.pack(pady=15)
 
-    image = Image.open('../pictures/otherHomePage.png')
+    image = Image.open(IMAGE_DIR / 'otherHomePage.png')
     image = ImageTk.PhotoImage(image)
 
     image_label = tk.Label(Home_Frame, image=image)
@@ -549,7 +555,7 @@ def Load_Frame_login(root):
     New_user_button = tk.Button(frame, text="New user?",fg="white", bg="#8dba66", command=open_new_user_window, font=("Georgia", 12))
     New_user_button.pack(pady=(5, 0),anchor="center")
 
-    image = Image.open('../pictures/homepage.png')
+    image = Image.open(IMAGE_DIR / 'homepage.png')
     newImage = image.resize((750, 400))
     img = ImageTk.PhotoImage(newImage)
     
