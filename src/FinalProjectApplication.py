@@ -525,7 +525,7 @@ def Load_Frame_login(root):
     Set_Frame_Size(frame,root)
     
     #login page header label
-    welcome_label = tk.Label(frame, text="Welcome User to the House Plant Nursery!\nPlease Log In or Sign Up.\n", 
+    welcome_label = tk.Label(frame, text="Welcome to the House Plant Nursery!\nPlease Log In or Sign Up.\n", 
                              fg="black", font=("Georgia", 25, "bold"))
     welcome_label.pack(pady=(10, 0),anchor="center")
     
