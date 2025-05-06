@@ -1,6 +1,6 @@
 from unittest.mock import patch, MagicMock
 import tkinter as tk
-from app.FinalProjectApplication import (
+from src.FinalProjectApplication import (
     verifyUniqeUser,
     verifyUserCred,
     varifyingResults,

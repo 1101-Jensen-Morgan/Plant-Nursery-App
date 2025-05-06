@@ -1,5 +1,5 @@
 import unittest
-from app import FinalProjectDatabase as db
+from src import FinalProjectDatabase as db
 
 class TestIntegrationDatabase(unittest.TestCase):
 
