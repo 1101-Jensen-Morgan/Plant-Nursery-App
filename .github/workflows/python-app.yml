@@ -104,5 +104,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: HousePlantNurse
+        name: HousePlantNursery
         path: dist/FinalProjectApplication.exe
