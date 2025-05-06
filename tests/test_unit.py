@@ -1,4 +1,3 @@
-import pytest
 from unittest.mock import patch, MagicMock
 import tkinter as tk
 from app.FinalProjectApplication import (

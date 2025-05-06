@@ -68,7 +68,6 @@ jobs:
       env:
         PGPASSWORD: Ih8passwards!
 
-
     - name: Run unit & integration tests
       env:
         PGHOST: localhost
@@ -76,4 +75,4 @@ jobs:
         PGPASSWORD: Ih8passwards!
         PGDATABASE: FinalProject
       run: |
-        python -m unittest discover -s tests
+        python -m pytest tests/
