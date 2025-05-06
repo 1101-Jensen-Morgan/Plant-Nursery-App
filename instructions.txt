@@ -1,1 +1,7 @@
-To run my code, run the FinalProjectApplication.py file
+To manually run the application use the command
+
+python -m src.FinalProjectApplication
+
+To manually run tests use the command
+
+python -m pytest tests/
