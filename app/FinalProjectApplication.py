@@ -8,7 +8,8 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import ImageTk, Image
 from tkcalendar import Calendar, DateEntry
-import FinalProjectDatabase as fpd
+from . import FinalProjectDatabase as fpd
+
 
 #=======================================
 #WINDOW SETUP
@@ -76,19 +77,11 @@ def log_entry(root, frame, new_user_window, uName, passw, fName, lName):
         failedLabel.pack(pady=10)
 
 def verifyUniqeUser(userN):
-    #This function will verify that there are no other users with the same username
-
-    #nList is a list of all the usernames from the database which is retieved by the 
-    #getUserNames function
     nList = fpd.getUserNames()
-    
-    #This then checks every name on the list to ensure that is not the same as the chosen username
     for name in nList:
         if name[0] == userN:
-            ver = False
-        else:
-            ver = True
-    return ver
+            return False  # Immediately return False if found
+    return True  # Only return True if no matches found
 
 def verifyUserCred(user, password):
     #This function will take the username and ensure that the password matches
@@ -568,21 +561,20 @@ def Load_Frame_login(root):
 
 #Where the window and and application starts
 #------------------------------------------------------------------
-# Make root for tkinter
-root = tk.Tk()
 
-# Make the window fullscreen
-make_fullscreen(root)
+if __name__ == '__main__':
+    # Make root for tkinter
+    root = tk.Tk()
 
-#title of the main page
-root.title("Houese Plant App")
-frame = tk.Frame(root)
+    # Make the window fullscreen
+    make_fullscreen(root)
 
-#load log in page
-Load_Frame_login(root)
+    #title of the main page
+    root.title("Houese Plant App")
+    frame = tk.Frame(root)
 
-# Run the Tkinter event loop
-root.mainloop()
+    #load log in page
+    Load_Frame_login(root)
 
-
-
+    # Run the Tkinter event loop
+    root.mainloop()
